@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>registers</title>
+</head>
+<body>
+    <script type="text/javascript">
+    var ImageEditType = '';
+</script>
+<script src="assets/js/ImageEditor.js"></script>
+
+<link rel="stylesheet" href="assets/style/dropzone.css" />
+<link rel="stylesheet" href="assets/style/cropper.css" />
+
+<script src="assets/js/dropzone.js"></script>
+<script src="assets/js/cropperjs.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<section id="registers" method="post">
+    <div class="registers-block bg">
+        <div class="container">
+            <div class="registers-box">
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="forms_boxs">                            
+                            <div class="user_content_box">
+                                <div class="headings">
+                                    <h4>Official Host Application</h4>
+                                    <p>Become an official host of MOR and get exciting rewards and perks for your talents.</p>
+                                </div>
+                                <div class="custom_btns">
+                                    <ul>
+                                        <li><a href="javascript:void(0);" data-id="#registers_user">Registered User</a></li>
+                                        <li><a href="javascript:void(0);" data-id="#not_registers_user">Unregistered User</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div id="registers_user" style="display: none;">
+                                <form name="officialHostApp"  onsubmit="return false">
+                                    <fieldset>
+                                        <div class="forms_elements">
+                                            <div class="headings">
+                                                <h4>Lorem Ipsum is simply</h4>
+                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+                                            </div>
+
+                                            <div class="formsboxs">
+                                                <label>Enter Mor ID</label>
+                                                <input type="text" id="morID" name="input" class="form-control" required>
+                                                <p><i class="fas fa-check-circle"></i> Display Name</p>
+                                            </div>
+                                            <div class="formslinks">
+                                                <p><input type="checkbox" name=""> Lorem Ipsum is simply <a href="">dummy</a> text of the <a href="">printing</a> and</p>
+                                            </div>
+                                            <div class="button-boxs">
+                                                {{!-- <a href="/auth/send-otp-for-morId-verification/{{input}}"><button type="button" class="btn btn-gradint next" >Continue</button></a> --}}
+                                                <button type="button" class="btn btn-gradint next sendOtp" >Continue</button>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset data-id="otp">
+                                        <div class="forms_elements">
+                                            <div class="headings">
+                                                <h4>Lorem Ipsum is simply</h4>
+                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+                                            </div>
+
+                                            <div class="formsboxs">
+                                                <label>Enter OTP sent to  +91********85    <a href="javascript:void(0);" class="links resendOTP">Re-enter MOR ID</a></label>
+                                                <div class="verification-code">
+                                                    <input class="otp" type="number" name="otp" id="otpVal1"  onkeyup='tabChange(1)' min="0" max="1" onkeypress="return isOnlyNumberKey(this, event)" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "1">
+                                                    <span>-</span>
+                                                    <input class="otp" type="number" name="otp" id="otpVal2" onkeyup='tabChange(2)' min="0" max="1" onkeypress="return isOnlyNumberKey(this, event)" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "1">
+                                                    <span>-</span>
+                                                    <input class="otp" type="number" name="otp" id="otpVal3" onkeyup='tabChange(3)' min="0" max="1" onkeypress="return isOnlyNumberKey(this, event)" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "1">
+                                                    <span>-</span>
+                                                    <input class="otp" type="number" name="otp" id="otpVal4" onkeyup='tabChange(4)' min="0" max="1" onkeypress="return isOnlyNumberKey(this, event)" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "1">
+                                                    <span>-</span>
+                                                    <input class="otp" type="number" name="otp" id="otpVal5" onkeyup='tabChange(5)' min="0" max="1" onkeypress="return isOnlyNumberKey(this, event)" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "1">
+                                                    <span>-</span>
+                                                    <input class="otp" type="number" name="otp" id="otpVal6" onkeyup='tabChange(6)' min="0" max="1" onkeypress="return isOnlyNumberKey(this, event)" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "1">
+                                                    <i class="fas fa-check-circle" aria-hidden="true"></i>
+                                                </div>
+                                                <input type="hidden" name="verify_otp" value="">
+                                                <p id="timer">Resend <span id="countdowntimer">15</span></p>
+                                            </div>
+                                            
+                                            <div class="button-boxs">
+                                                <button type="button" class="btn btn-gradint next verifyBtn">Verify</button>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset>
+                                        <div class="forms_elements">
+                                            <div class="headings">
+                                                <h4>Official Host Application</h4>
+                                            </div>
+                                            <div class="formsboxs">
+                                                <div class="user_boxs">
+                                                    <ul>
+                                                        <li>
+                                                            <div class="user_img">
+                                                                <img src="assets/images/users.jpg">
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="user-content">
+                                                                <h4>[Display Name]</h4>
+                                                                <p>[Mor ID]</p>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="progress_boxs">
+                                                    <ul>
+                                                        <li class="active"></li>
+                                                        <li></li>
+                                                        <li></li>
+                                                        <li></li>
+                                                    </ul>
+                                                </div>
+                                                <label class="usertgs">Choose Tags (<span>0</span>/5)</label>
+                                                <div class="tags_list">
+                                                    <ul>
+                                                        <li>
+                                                            <div class="tags_box">
+                                                                <input type="checkbox" name="talentTags" value="Music"><span>Music</span>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="tags_box">
+                                                                <input type="checkbox" name="talentTags" value="Singing" ><span>Singing</span>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="tags_box">
+                                                                <input type="checkbox" name="talentTags" value="Yoga"><span>Yoga</span>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="tags_box">
+                                                                <input type="checkbox" name="talentTags" value="Chating"><span>Chating</span>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="tags_box">
+                                                                <input type="checkbox" name="talentTags" value="Debeting" ><span>Debeting</span>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="tags_box">
+                                                                <input type="checkbox" name="talentTags" value="Gaming"><span>Gaming</span>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="tags_box">
+                                                                <input type="checkbox" name="talentTags" value="Teaching"><span>Teaching</span>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="tags_box">
+                                                                <input type="checkbox" name="talentTags" value="Testing"><span>Testing</span>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="tags_box">
+                                                                <input type="checkbox" name="talentTags" value="Singing"><span>Singing</span>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="tags_box">
+                                                                <input type="checkbox" name="talentTags" value="Gaming"><span>Gaming</span>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="tags_box">
+                                                                <input type="checkbox" name="talentTags" value="Song"><span>Song</span>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="tags_box">
+                                                                <input type="checkbox" name="talentTags" value="typing"><span>typing</span>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="button-boxs">
+                                                <button type="button" class="btn btn-gradint next">Continue</button>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset>
+                                        <div class="forms_elements">
+                                            <div class="headings">
+                                                <h4>Official Host Application</h4>
+                                            </div>
+                                            <div class="formsboxs">
+                                                <div class="user_boxs">
+                                                    <ul>
+                                                        <li>
+                                                            <div class="user_img">
+                                                                <img src="assets/images/users.jpg">
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="user-content">
+                                                                <h4>[Display Name]</h4>
+                                                                <p>[Mor ID]</p>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="progress_boxs">
+                                                    <ul>
+                                                        <li class="active"></li>
+                                                        <li class="active"></li>
+                                                        <li></li>
+                                                        <li></li>
+                                                    </ul>
+                                                </div>
+                                                <label>Applying for?</label>
+                                                <div class="applying_boxs">
+                                                    <ul>
+                                                        <li>
+                                                            <div class="applying_box">
+                                                                <input type="checkbox" name="hostTypes" value="OFFICIAL_HOST">
+                                                                <div class="chkcontent">
+                                                                    <img src="assets/images/gallery/1.jpg">
+                                                                    <div class="img_content">
+                                                                        <span>Official Host</span>
+                                                                    </div>
+                                                                </span>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="applying_box">
+                                                                <input type="checkbox" name="hostTypes" value="CELEBRITY">
+                                                                <div class="chkcontent">
+                                                                    <img src="assets/images/gallery/2.jpg">
+                                                                    <div class="img_content">
+                                                                        <span>Celebrity</span>
+                                                                    </div>
+                                                                </span>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="button-boxs">
+                                                <button type="button" class="btn btn-gradint next" >Continue</button>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset>
+                                        <div class="forms_elements">
+                                            <div class="headings">
+                                                <h4>Official Host Application</h4>
+                                            </div>
+                                            <div class="formsboxs">
+                                                <div class="user_boxs">
+                                                    <ul>
+                                                        <li>
+                                                            <div class="user_img">
+                                                                <img src="assets/images/users.jpg">
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="user-content">
+                                                                <h4>[Display Name]</h4>
+                                                                <p>[Mor ID]</p>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="progress_boxs">
+                                                    <ul>
+                                                        <li class="active"></li>
+                                                        <li class="active"></li>
+                                                        <li class="active"></li>
+                                                        <li></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Choose Country *</label>
+                                                    <select class="custom-select" id="coupon_country" name="country">
+                                                        <option value="India">India</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Choose State *</label>
+                                                    <select class="custom-select" id="sate" name="state">
+                                                        {{#each result}}
+                                                 <option>{{this}}</option>
+                                                  {{/each}}
+                                                    </select>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Choose City *</label>
+                                                    <select class="custom-select" name="city">
+                                                        {{#each cities}}
+                                                 <option>{{this}}</option>
+                                                  {{/each}}
+                                                    </select>
+                                                </div>
+                                                <div class="form-group m-0">
+                                                    <label>Enter Club ID (optional)</label>
+                                                    <input type="text" class="form-control" name="clubId" placeholder="Enter Club ID">
+                                                </div>
+                                            </div>
+                                            <div class="button-boxs">
+                                                <button type="button" class="btn btn-gradint next">Continue</button>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset>
+                                        <div class="forms_elements">
+                                            <div class="headings">
+                                                <h4>Official Host Application</h4>
+                                            </div>
+                                            <div class="formsboxs">
+                                                <div class="user_boxs">
+                                                    <ul>
+                                                        <li>
+                                                            <div class="user_img">
+                                                                <img src="assets/images/users.jpg">
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="user-content">
+                                                                <h4>[Display Name]</h4>
+                                                                <p>[Mor ID]</p>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="progress_boxs">
+                                                    <ul>
+                                                        <li class="active"></li>
+                                                        <li class="active"></li>
+                                                        <li class="active"></li>
+                                                        <li class="active"></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="upload_documents">
+                                                    <h4>Upload Documents</h4>
+
+                                                    <label>Upload Photo</label>
+                                                    <div class="file_upload_box">                                        
+                                                        <div class="upload_btn">
+                                                            <input type="file" id="UserRound" name="selfie" class="uploadButton-input upload_image" accept=".jpg,.jpeg,.png">
+                                                            <div class="edit_btn"><span>Retry</span></div>                                            
+                                                        </div>
+                                                        <div class="selected_img" style="display: none;">
+                                                            <img id="UserRound_preview" class="uploadImagePreview" src="">
+                                                        </div>
+                                                        <div class="upload_content">
+                                                            <div class="center_box">
+                                                                <img src="assets/images/upload_img.png">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <ul>
+                                                        <li>
+                                                            <label>Age Proof (Front)</label>
+                                                            <div class="file_upload_box">                                        
+                                                                <div class="upload_btn">
+                                                                    <input type="file" id="agef" name="ageProofFront" class="uploadButton-input upload_image" accept=".jpg,.jpeg,.png">
+                                                                    <div class="edit_btn"><span>Retry</span></div>                                            
+                                                                </div>
+                                                                <div class="selected_img" style="display: none;">
+                                                                    <img id="agef_preview" class="uploadImagePreview" src="">
+                                                                </div>
+                                                                <div class="upload_content">
+                                                                    <div class="center_box">
+                                                                        <img src="assets/images/upload_img.png">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <label>Age Proof (Back)</label>
+                                                            <div class="file_upload_box">                                        
+                                                                <div class="upload_btn">
+                                                                    <input type="file" id="ageb" name="ageProofBack" class="uploadButton-input upload_image" accept=".jpg,.jpeg,.png">
+                                                                    <div class="edit_btn"><span>Retry</span></div>                                            
+                                                                </div>
+                                                                <div class="selected_img" style="display: none;">
+                                                                    <img id="ageb_preview" class="uploadImagePreview" src="">
+                                                                </div>
+                                                                <div class="upload_content">
+                                                                    <div class="center_box">
+                                                                        <img src="assets/images/upload_img.png">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <label>Address Proof (Front)</label>
+                                                            <div class="file_upload_box">                                        
+                                                                <div class="upload_btn">
+                                                                    <input type="file" id="addressf" name="addressProofFront" class="uploadButton-input upload_image" accept=".jpg,.jpeg,.png">
+                                                                    <div class="edit_btn"><span>Retry</span></div>                                            
+                                                                </div>
+                                                                <div class="selected_img" style="display: none;">
+                                                                    <img id="addressf_preview" class="uploadImagePreview" src="">
+                                                                </div>
+                                                                <div class="upload_content">
+                                                                    <div class="center_box">
+                                                                        <img src="assets/images/upload_img.png">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <label>Address Proof (Back)</label>
+                                                            <div class="file_upload_box">                                        
+                                                                <div class="upload_btn">
+                                                                    <input type="file" id="addressb" name="addressProofBack" class="uploadButton-input upload_image" accept=".jpg,.jpeg,.png">
+                                                                    <div class="edit_btn"><span>Retry</span></div>                                            
+                                                                </div>
+                                                                <div class="selected_img" style="display: none;">
+                                                                    <img id="addressb_preview" class="uploadImagePreview" src="">
+                                                                </div>
+                                                                <div class="upload_content">
+                                                                    <div class="center_box">
+                                                                        <img src="assets/images/upload_img.png">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="button-boxs">
+                                                <!-- <button type="submit" class="btn btn-gradint">Submit</button> -->
+                                                <a href="/congratulations" class="btn btn-gradint regSubmit">Submit</a>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                            <div id="not_registers_user" style="display: none;">
+                                <form>
+                                    <fieldset>
+                                        <div class="forms_elements">
+                                            <div class="headings">
+                                                <h4>Lorem Ipsum is simply</h4>
+                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+                                            </div>
+
+                                            <div class="formsboxs">
+                                                <label>Enter Mor ID</label>
+                                                <div class="tel_box">
+                                                    <div>+ 91</div>
+                                                    <input type="text" name="" class="form-control">
+                                                </div>
+                                                <p>We will send otp to this number</p>
+                                            </div>
+                                            <div class="button-boxs">
+                                                <button type="button" class="btn btn-gradint next">Continue</button>
+                                            </div>
+                                        </div>
+                                    </fieldset>                                   
+                                    <fieldset data-id="otp">
+                                        <div class="forms_elements">
+                                            <div class="headings">
+                                                <h4>Lorem Ipsum is simply</h4>
+                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+                                            </div>
+
+                                            <div class="formsboxs">
+                                                <label>Enter OTP sent to  +91********85    <a href="javascript:void(0);" class="links resendOTP">Re-enter MOR ID</a></label>
+                                                <div class="verification-code">
+                                                    <input class="otp" type="number"  onkeyup='tabChange(1)' min="0" max="1" onkeypress="return isOnlyNumberKey(this, event)" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "1">
+                                                    <span>-</span>
+                                                    <input class="otp" type="number"  onkeyup='tabChange(2)' min="0" max="1" onkeypress="return isOnlyNumberKey(this, event)" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "1">
+                                                    <span>-</span>
+                                                    <input class="otp" type="number" onkeyup='tabChange(3)' min="0" max="1" onkeypress="return isOnlyNumberKey(this, event)" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "1">
+                                                    <span>-</span>
+                                                    <input class="otp" type="number"  onkeyup='tabChange(4)' min="0" max="1" onkeypress="return isOnlyNumberKey(this, event)" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "1">
+                                                    <span>-</span>
+                                                    <input class="otp" type="number" onkeyup='tabChange(5)' min="0" max="1" onkeypress="return isOnlyNumberKey(this, event)" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "1">
+                                                    <span>-</span>
+                                                    <input class="otp" type="number" onkeyup='tabChange(6)' min="0" max="1" onkeypress="return isOnlyNumberKey(this, event)" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "1">
+                                                    <i class="fas fa-check-circle" aria-hidden="true"></i>
+                                                </div>
+                                                <input type="hidden" name="verify_otp" value="">
+                                                <p id="timer">Resend <span id="countdowntimer">15</span></p>
+                                            </div>
+                                            
+                                            <div class="button-boxs">
+                                                <button type="button" class="btn btn-gradint next">Verify</button>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset>
+                                        <div class="forms_elements">
+                                            <div class="headings">
+                                                <h4>Official Host Application</h4>
+                                            </div>
+                                            <div class="formsboxs ">
+                                                <div class="user_boxs">
+                                                    <ul>
+                                                        <li>
+                                                            <div class="user_img">
+                                                                <img src="assets/images/users.jpg">
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="user-content">
+                                                                <h4>[Display Name]</h4>
+                                                                <p>[Mor ID]</p>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="progress_boxs">
+                                                    <ul>
+                                                        <li class="active"></li>
+                                                        <li></li>
+                                                        <li></li>
+                                                        <li></li>
+                                                    </ul>
+                                                </div>
+                                                <label class="usertgs">Choose Tags (<span>0</span>/5)</label>
+                                                <div class="tags_list">
+                                                    <ul>
+                                                        <li>
+                                                            <div class="tags_box">
+                                                                <input type="checkbox" name="tag"><span>classical</span>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="tags_box">
+                                                                <input type="checkbox" name="tag"><span>classical</span>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="tags_box">
+                                                                <input type="checkbox" name="tag"><span>classical</span>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="tags_box">
+                                                                <input type="checkbox" name="tag"><span>classical</span>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="tags_box">
+                                                                <input type="checkbox" name="tag"><span>classical</span>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="tags_box">
+                                                                <input type="checkbox" name="tag"><span>classical</span>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="tags_box">
+                                                                <input type="checkbox" name="tag"><span>classical</span>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="tags_box">
+                                                                <input type="checkbox" name="tag"><span>classical</span>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="tags_box">
+                                                                <input type="checkbox" name="tag"><span>classical</span>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="tags_box">
+                                                                <input type="checkbox" name="tag"><span>classical</span>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="tags_box">
+                                                                <input type="checkbox" name="tag"><span>classical</span>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="tags_box">
+                                                                <input type="checkbox" name="tag"><span>classical</span>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="button-boxs">
+                                                <button type="button" class="btn btn-gradint next">Continue</button>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset>
+                                        <div class="forms_elements">
+                                            <div class="headings">
+                                                <h4>Official Host Application</h4>
+                                            </div>
+                                            <div class="formsboxs">
+                                                <div class="user_boxs">
+                                                    <ul>
+                                                        <li>
+                                                            <div class="user_img">
+                                                                <img src="assets/images/users.jpg">
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="user-content">
+                                                                <h4>[Display Name]</h4>
+                                                                <p>[Mor ID]</p>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="progress_boxs">
+                                                    <ul>
+                                                        <li class="active"></li>
+                                                        <li class="active"></li>
+                                                        <li></li>
+                                                        <li></li>
+                                                    </ul>
+                                                </div>
+                                                <label>Applying for?</label>
+                                                <div class="applying_boxs">
+                                                    <ul>
+                                                        <li>
+                                                            <div class="applying_box">
+                                                                <input type="checkbox" name="tag">
+                                                                <div class="chkcontent">
+                                                                    <img src="assets/images/gallery/1.jpg">
+                                                                    <div class="img_content">
+                                                                        <span>Official Host</span>
+                                                                    </div>
+                                                                </span>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="applying_box">
+                                                                <input type="checkbox" name="tag">
+                                                                <div class="chkcontent">
+                                                                    <img src="assets/images/gallery/2.jpg">
+                                                                    <div class="img_content">
+                                                                        <span>Celebrity</span>
+                                                                    </div>
+                                                                </span>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="button-boxs">
+                                                <button type="button" class="btn btn-gradint next">Continue</button>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset>
+                                        <div class="forms_elements">
+                                            <div class="headings">
+                                                <h4>Official Host Application</h4>
+                                            </div>
+                                            <div class="formsboxs">
+                                                <div class="user_boxs">
+                                                    <ul>
+                                                        <li>
+                                                            <div class="user_img">
+                                                                <img src="assets/images/users.jpg">
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="user-content">
+                                                                <h4>[Display Name]</h4>
+                                                                <p>[Mor ID]</p>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="progress_boxs">
+                                                    <ul>
+                                                        <li class="active"></li>
+                                                        <li class="active"></li>
+                                                        <li class="active"></li>
+                                                        <li></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Choose Country *</label>
+                                                    <select class="custom-select">
+                                                        <option>Choose</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Choose State *</label>
+                                                    <select class="custom-select">
+                                                        <option>Choose</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Choose City *</label>
+                                                    <select class="custom-select">
+                                                        <option>Choose</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group m-0">
+                                                    <label>Enter Club ID (optional)</label>
+                                                    <input type="text" class="form-control" placeholder="Enter Club ID">
+                                                </div>
+                                            </div>
+                                            <div class="button-boxs">
+                                                <button type="button" class="btn btn-gradint next">Continue</button>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    <fieldset>
+                                        <div class="forms_elements">
+                                            <div class="headings">
+                                                <h4>Official Host Application</h4>
+                                            </div>
+                                            <div class="formsboxs">
+                                                <div class="user_boxs">
+                                                    <ul>
+                                                        <li>
+                                                            <div class="user_img">
+                                                                <img src="assets/images/users.jpg">
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="user-content">
+                                                                <h4>[Display Name]</h4>
+                                                                <p>[Mor ID]</p>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="progress_boxs">
+                                                    <ul>
+                                                        <li class="active"></li>
+                                                        <li class="active"></li>
+                                                        <li class="active"></li>
+                                                        <li class="active"></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="upload_documents">
+                                                    <h4>Upload Documents</h4>
+
+                                                    <label>Upload Photo</label>
+                                                    <div class="file_upload_box">                                        
+                                                        <div class="upload_btn">
+                                                            <input type="file" id="UserRound" class="uploadButton-input upload_image" accept=".jpg,.jpeg,.png">
+                                                            <div class="edit_btn"><span>Retry</span></div>                                            
+                                                        </div>
+                                                        <div class="selected_img" style="display: none;">
+                                                            <img id="UserRound_preview" class="uploadImagePreview" src="">
+                                                        </div>
+                                                        <div class="upload_content">
+                                                            <div class="center_box">
+                                                                <img src="assets/images/upload_img.png">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <ul>
+                                                        <li>
+                                                            <label>Age Proof (Front)</label>
+                                                            <div class="file_upload_box">                                        
+                                                                <div class="upload_btn">
+                                                                    <input type="file" id="agef" class="uploadButton-input upload_image" accept=".jpg,.jpeg,.png">
+                                                                    <div class="edit_btn"><span>Retry</span></div>                                            
+                                                                </div>
+                                                                <div class="selected_img" style="display: none;">
+                                                                    <img id="agef_preview" class="uploadImagePreview" src="">
+                                                                </div>
+                                                                <div class="upload_content">
+                                                                    <div class="center_box">
+                                                                        <img src="assets/images/upload_img.png">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <label>Age Proof (Back)</label>
+                                                            <div class="file_upload_box">                                        
+                                                                <div class="upload_btn">
+                                                                    <input type="file" id="ageb" class="uploadButton-input upload_image" accept=".jpg,.jpeg,.png">
+                                                                    <div class="edit_btn"><span>Retry</span></div>                                            
+                                                                </div>
+                                                                <div class="selected_img" style="display: none;">
+                                                                    <img id="ageb_preview" class="uploadImagePreview" src="">
+                                                                </div>
+                                                                <div class="upload_content">
+                                                                    <div class="center_box">
+                                                                        <img src="assets/images/upload_img.png">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <label>Address Proof (Front)</label>
+                                                            <div class="file_upload_box">                                        
+                                                                <div class="upload_btn">
+                                                                    <input type="file" id="addressf" class="uploadButton-input upload_image" accept=".jpg,.jpeg,.png">
+                                                                    <div class="edit_btn"><span>Retry</span></div>                                            
+                                                                </div>
+                                                                <div class="selected_img" style="display: none;">
+                                                                    <img id="addressf_preview" class="uploadImagePreview" src="">
+                                                                </div>
+                                                                <div class="upload_content">
+                                                                    <div class="center_box">
+                                                                        <img src="assets/images/upload_img.png">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <label>Address Proof (Back)</label>
+                                                            <div class="file_upload_box">                                        
+                                                                <div class="upload_btn">
+                                                                    <input type="file" id="addressb" class="uploadButton-input upload_image" accept=".jpg,.jpeg,.png">
+                                                                    <div class="edit_btn"><span>Retry</span></div>                                            
+                                                                </div>
+                                                                <div class="selected_img" style="display: none;">
+                                                                    <img id="addressb_preview" class="uploadImagePreview" src="">
+                                                                </div>
+                                                                <div class="upload_content">
+                                                                    <div class="center_box">
+                                                                        <img src="assets/images/upload_img.png">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="button-boxs">
+                                                <!-- <button type="submit" class="btn btn-gradint">Submit</button> -->
+                                                <a href="/congratulations" class="btn btn-gradint">Submit</a>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                            <div class="footer_links">
+                                <p><a href="/privacypolicy">Privacy Policy</a> <span>|</span> <a href="/termsconditions">Terms and Conditions</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div id="gallerys">
+                            <div id="gallerys_boxs">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="gallery_box">
+                                            <img src="assets/images/gallery/1.jpg">
+                                        </div>
+                                        <div class="gallery_box">
+                                            <img src="assets/images/gallery/2.jpg">
+                                        </div>
+                                        <div class="gallery_box">
+                                            <img src="assets/images/gallery/3.jpg">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="gallery_box">
+                                            <img src="assets/images/gallery/4.jpg">
+                                        </div>
+                                        <div class="gallery_box">
+                                            <img src="assets/images/gallery/5.jpg">
+                                        </div>
+                                        <div class="gallery_box">
+                                            <img src="assets/images/gallery/6.jpg">
+                                        </div>
+                                        <div class="gallery_box">
+                                            <img src="assets/images/gallery/7.jpg">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="gallery_box">
+                                            <img src="assets/images/gallery/8.jpg">
+                                        </div>
+                                        <div class="gallery_box">
+                                            <img src="assets/images/gallery/9.jpg">
+                                        </div>
+                                        <div class="gallery_box">
+                                            <img src="assets/images/gallery/10.jpg">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Image</h5>
+                <button type="button" class="close cancel_model" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="img-container">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <img src="" class="model_img" id="sample_image" />
+                        </div>
+                        <div class="col-md-4">
+                            <div class="preview"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="crop" class="btn btn-gradint">Done</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+
+</script>
+
+{{!-- <script>
+     $('.sendOtp').click(function (e) {
+            e.preventDefault();
+            const form = document.officialHostApp;
+            //var formData = new FormData(form);
+            var morID = $('#morID').val();
+            if(morID == "") {
+                alert("Mor ID Not Insert");
+                return false;
+            }
+            $.ajax({
+                url: '/auth/send-otp-for-morId-verification',
+                method: 'POST',
+                data: {input: morID},
+                //contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
+                //processData: false,
+                success: function (result, status, xhr) {
+                    if(!result){
+                        return false
+                    }
+                    //alert("successfull data insert");
+                    //window.location.href = "/registers"
+                },
+                error: function (xhr, status, error) {
+                    if(xhr){
+                        return false;
+                    }
+                    alert("Invalid User");
+                }
+            });
+        });
+</script>
+<script>
+     $('.verifyBtn').click(function (e) {
+            e.preventDefault();
+              var morID = $('#morID').val();
+            var otp=""
+    $('input[name="otp').each(function() {
+        otp+= ($(this).val());
+    });
+
+           $.ajax({
+                url: '/auth/morId-verification',
+                method: 'POST',
+                data:{otp:otp,input:morID},
+                //contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
+                //processData: false,
+                success: function (result, status, xhr) {
+                   
+                   alert('success')
+                    //alert("successfull data insert");
+                    //window.location.href = "/registers"
+                },
+                error: function (xhr, status, error) {
+                    alert("Invalid User");
+                    if(xhr){
+                        return false;
+                    }
+
+                }
+            });
+        });
+</script> --}}
+<script>
+     $('.regSubmit').click(function (e) {
+            e.preventDefault();
+              var form = document.officialHostApp;
+              var data = new FormData(form)
+           $.ajax({
+                url: '/users/officialHost',
+                method: 'POST',
+                data:data,
+                contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
+                processData: false,
+                success: function (result, status, xhr) {   
+                   alert('success')
+                    //alert("successfull data insert");
+                    //window.location.href = "/registers"
+                },
+                error: function (xhr, status, error) {
+                    alert("Invalid User");
+                    if(xhr){
+                        return false;
+                    }
+                }
+            });
+        });
+</script>
+
+<script type="text/javascript">
+    $(document).on("click",".custom_btns ul li a",function(e) 
+    {   
+        var ids = $(this).attr('data-id');
+        $('#registers_user').hide();
+        $('#not_registers_user').hide();
+        $('.user_content_box').hide();
+        $(ids).show();
+       
+    });
+
+    $(document).on("click","#registers .tags_box input",function() 
+    {
+        
+        var checklen = $('#registers .tags_box input:checked').length;
+
+        if(checklen <= 4)
+        {
+            $('#registers .tags_box input').css('z-index', '3');             
+        }
+        else
+        {
+            $('#registers .tags_box input').css('z-index', '1');
+            $('#registers .tags_box input:checked').css('z-index', '3');             
+        }
+
+        $('#registers .usertgs span').text(checklen);
+        
+    });
+    $(document).on("click","button.next",function(e) 
+    {
+        var curentnod = $(this).parent().parent().parent();
+        var nextnode = $(this).parent().parent().parent().next();
+        var dataids = $(this).parent().parent().parent().next().attr('data-id');
+
+        curentnod.hide();
+        nextnode.show();
+
+        if(dataids == 'otp')
+        {
+            var morID = $('#morID').val();
+            if(morID == "") {
+                return false;
+            }
+            let timerOn = true;
+
+        function timer(remaining) {
+          //var m = Math.floor(remaining / 60);
+          var s = remaining % 60;
+          
+          //m = m < 10 ? '0' + m : m;
+          s = s < 0 ? '0' + s : s;
+          document.getElementById('countdowntimer').innerHTML = s;
+          remaining -= 1;
+          
+          if(remaining >= 0 && timerOn) {
+            setTimeout(function() {
+                timer(remaining);
+            }, 1000);
+            return;
+          }
+
+          if(!timerOn) {
+            // Do validate stuff here
+            return;
+          }
+          
+          $('#timer').hide();
+          $('#send_otp').addClass('active');
+          
+        }
+
+        timer(60);        
+
+
+           
+        }
+
+    });  
+</script>
+
+<script type="text/javascript">
+    let digitValidate = function(ele){
+              console.log(ele.value);
+              ele.value = ele.value.replace(/[^0-9]/g,'');
+            }
+
+            let tabChange = function(val)
+            {
+                $('.otp').each(function(i, obj) {
+                    if($(obj).val()){
+                        $(obj).addClass('active');
+                    }else{
+                        $(obj).removeClass('active');
+                    }
+                });  
+
+                let ele = document.querySelectorAll('.otp');
+                if(ele[val-1].value != ''){
+                  ele[val].focus()
+                }else if(ele[val-1].value == ''){
+                  ele[val-2].focus()
+                }
+               
+            }
+</script>
+
+
+<script type="text/javascript">
+    $(document).ready(function()
+    {
+        var $modal = $('#modal');
+        var id = '';
+        var image = '';
+        var ratio = 1;
+        var cropper;
+       
+
+        $('.cancel_model').click(function()
+        {
+            $modal.modal('hide');
+        });
+
+        $('.upload_image').change(function(event)
+        {
+            id = $(this).attr('id');
+
+            if(id == 'agef' || id == 'ageb' || id == 'addressf' || id == 'addressb')
+            {
+                ratio = 9/14;
+            }else
+            {
+                ratio = 1;
+            }
+
+            $('.model_img').attr('id',id+'_preview_model')
+            image = document.getElementById(id+'_preview_model');
+            var files = event.target.files;
+            console.log(files,'files')
+            var done = function(url)
+            {
+                image.src = url;
+                $modal.modal('show');
+            };
+
+            if(files && files.length > 0 && files[0].size < 6000000)
+            {
+                reader = new FileReader();
+                reader.onload = function(event)
+                {
+                    done(reader.result);
+                };
+                reader.readAsDataURL(files[0]);
+            }
+        });
+
+        $modal.on('shown.bs.modal', function() 
+        {
+            console.log(image,' image')
+
+            cropper = new Cropper(image, 
+            {
+                aspectRatio: ratio,
+                viewMode: 3,
+                preview:'.preview'
+            });
+        }).on('hidden.bs.modal', function()
+        {
+            cropper.destroy();
+            cropper = null;
+        });
+
+        $('#crop').click(function()
+        {
+            canvas = cropper.getCroppedCanvas(
+            {
+                width:1000,
+                height:1000,
+                imageSmoothingEnabled: true,
+                imageSmoothingQuality: 'high',
+            });
+
+            canvas.toBlob(function(blob)
+            {
+                url = URL.createObjectURL(blob);
+                var reader = new FileReader();
+                reader.readAsDataURL(blob);
+                reader.onloadend = function()
+                {
+                    var base64data = reader.result;
+                    $modal.modal('hide');
+                    $('#'+id+'_preview').attr('src', base64data);
+                    return false;
+                };
+            }, 'image/jpeg', 1);
+        });
+    });
+</script>
+</html>

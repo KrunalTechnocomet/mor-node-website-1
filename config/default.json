@@ -1,0 +1,11 @@
+{
+    "DB_URL": "mongodb+srv://DbUserDevelopment:45ak1U69ofc3N72W@mor-mongo-development-c09b434a.mongo.ondigitalocean.com/MorDevelopmentDB?authSource=admin&replicaSet=mor-mongo-development",
+    "JWT_SECRET": "jwt_secret",
+    "IP": "0.0.0.0",
+    "JWT_LIFETIME": "60days",
+    "S3BUCKET_NAME": "displaypictures",
+    "SMS_FROM": "",
+    "SMS_BODY": "",
+    "ZEGO_APP_ID":"1455971921",
+    "ZEGO_SERVER_SECRET_ID":"3d746801708707b70edacc4b4096598e"
+}

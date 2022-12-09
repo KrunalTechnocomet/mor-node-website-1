@@ -1,0 +1,40 @@
+@font-face {
+    font-family: 'HelveticaRounded-Bold';
+    src: url('HelveticaRounded-Bold.woff2') format('woff2'),
+        url('HelveticaRounded-Bold.woff') format('woff'),
+        url('HelveticaRounded-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Helvetica-Light';
+    src: url('Helvetica-Light.woff2') format('woff2'),
+        url('Helvetica-Light.woff') format('woff'),
+        url('Helvetica-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Helvetica';
+    src: url('Helvetica.woff2') format('woff2'),
+        url('Helvetica.woff') format('woff'),
+        url('Helvetica.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Helvetica-Compressed';
+    src: url('Helvetica-Compressed.woff2') format('woff2'),
+        url('Helvetica-Compressed.woff') format('woff'),
+        url('Helvetica-Compressed.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

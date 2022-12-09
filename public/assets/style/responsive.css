@@ -1,0 +1,71 @@
+@charset "utf-8";
+/* CSS Document */
+
+@media (max-width: 1200px) {
+}
+/* I-pad Landscape */
+@media (max-width: 1024px) {
+}
+/* Google Nexus 7 Landscape */
+@media (max-width: 992px) {
+	
+}
+/* I-pad Portrait */
+@media (max-width: 768px) {
+	a.menu-icon { display:block; margin:0 auto; float: right;}
+	a.menu-text { display:block;}
+
+	#header .main-nav {margin-top: 16px;	max-width: 43px;}
+
+	#nav { float:none; margin:0 auto; text-align:center; position: relative;}
+	#nav ul {display: none;	overflow: hidden;	margin: 10px 0 0 0;	width: 270px;	position: absolute;	top: 40px;	right: 0px;	z-index: 11; background-color: rgba(211, 175, 3,0.8)}
+	#nav ul li { width:100%; margin:0; padding:0; border:none; border-bottom:1px solid #fff !important;}
+	#nav ul li a { padding:10px 0; color:#fff;}
+	#nav ul li:last-child {border-bottom: none !important;}
+	#nav ul li .svg-inline--fa {margin: 10px 0px; font-size: 18px;}
+	
+	/* Drop Down */
+	#nav ul li ul { position:relative; top:0; width:100%; background:#ccc;  }
+	/* Drop Down */
+
+	#nav ul li.active a {color: #fff;}
+	#nav ul li a:hover {color: #fff;}
+
+	.col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9 
+	{
+		-ms-flex: 0 0 100%;
+		flex: 0 0 100%;
+		max-width: 100%;
+	}
+
+	.order-md-1, .order-md-2 {-ms-flex-order: inherit !important; order: inherit !important;}
+	
+}
+/* HTC One Landscape */
+@media (max-width: 640px) {
+}
+/* Google Nexus 7 Portrait */
+@media (max-width: 603px) {
+}
+/* Google Nexus 4 Landscape */
+@media (max-width: 600px) {
+}
+/* I-phone Landscape */
+@media (max-width: 568px) {
+}
+/* I-phone Landscape */
+@media (max-width: 480px) {
+	
+}
+/* Nokia Lumia Portrait */
+@media (max-width: 460px) {
+}
+/* HTC One Portrait */
+@media (max-width: 360px) {
+}
+/* I-phone Portrait */
+@media (max-width: 320px) {
+}
+/* Small mobile */
+@media (max-width: 240px) {
+}
